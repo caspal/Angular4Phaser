@@ -1,7 +1,17 @@
-<div style="text-align:center">
-  <h1>
-    Phaser with Angular4 POC
-  </h1>
-  <phaser></phaser>
-</div>
-
+<div class="container">
+  <div row row-centered>
+    <h1 class="centered-text">
+      Phaser with Angular4 POC
+    </h1>
+  </div>
+  <p></p>
+  <div class="row align-items-center centered-text">
+    <div class="col align-self-center">
+      You have clicked on Albert {{clickCount}} times.
+    </div>
+    <div class="col align-self-center">
+      <button [disabled]="!buttonEnabled" type="button" class="btn btn-primary" (click)="doBarrel()">Do a barrel roll!!</button>
+    </div>
+  </div>
+  <p></p>
+  <phaser (onAlbertFinishedRoll)="onAlbertFinishedRoll($event)" (onClickedOnAlbert)="onClickedOnAlbert($event)"></phaser>
