@@ -144,6 +144,7 @@ module.exports = "<div class=\"row\">\n  <div id=\"phaserCanvas\"></div>\n</div>
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PhaserCanvasComponent; });
 /// <reference types="phaser-ce" />
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -156,12 +157,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var PhaserCanvasComponent = (function () {
-    function PhaserCanvasComponent(elRef) {
+    function PhaserCanvasComponent(elRef, location) {
         this.elRef = elRef;
+        this.location = location;
         this.onClickedOnAlbert = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* EventEmitter */]();
         this.onAlbertFinishedRoll = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* EventEmitter */]();
         this.sprites = {};
+        this.location = location;
     }
     PhaserCanvasComponent.prototype.sizeChange = function (event) {
         this.scaleManager.setGameSize(this.getWidth(), 600);
@@ -179,7 +183,7 @@ var PhaserCanvasComponent = (function () {
         return canvasWidth;
     };
     PhaserCanvasComponent.prototype.preload = function () {
-        this.game.load.image('einstein', 'assets/pics/ra_einstein.png');
+        this.game.load.image('einstein', location.href + '/assets/pics/ra_einstein.png');
     };
     PhaserCanvasComponent.prototype.create = function (canvasComp) {
         var _this = this;
@@ -233,12 +237,13 @@ PhaserCanvasComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* Component */])({
         // tslint:disable-next-line:component-selector
         selector: 'phaser',
-        template: __webpack_require__("../../../../../src/app/phaser/phaser-canvas.component.html")
+        template: __webpack_require__("../../../../../src/app/phaser/phaser-canvas.component.html"),
+        providers: [__WEBPACK_IMPORTED_MODULE_1__angular_common__["f" /* Location */], { provide: __WEBPACK_IMPORTED_MODULE_1__angular_common__["g" /* LocationStrategy */], useClass: __WEBPACK_IMPORTED_MODULE_1__angular_common__["h" /* PathLocationStrategy */] }]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* ElementRef */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* ElementRef */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common__["f" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common__["f" /* Location */]) === "function" && _b || Object])
 ], PhaserCanvasComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=phaser-canvas.component.js.map
 
 /***/ }),

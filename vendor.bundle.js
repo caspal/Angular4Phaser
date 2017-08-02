@@ -2637,16 +2637,16 @@ module.exports = g;
 /* unused harmony export VERSION */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return PlatformLocation; });
 /* unused harmony export LOCATION_INITIALIZED */
-/* unused harmony export LocationStrategy */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return LocationStrategy; });
 /* unused harmony export APP_BASE_HREF */
 /* unused harmony export HashLocationStrategy */
-/* unused harmony export PathLocationStrategy */
-/* unused harmony export Location */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return PathLocationStrategy; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return Location; });
 /* unused harmony export ɵa */
 /* unused harmony export ɵb */
 
 /**
- * @license Angular v4.3.2
+ * @license Angular v4.3.3
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -6589,7 +6589,7 @@ function isPlatformWorkerUi(platformId) {
 /**
  * \@stable
  */
-var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["E" /* Version */]('4.3.2');
+var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["E" /* Version */]('4.3.3');
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -6858,7 +6858,7 @@ var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["E" /* Version */]
 /* unused harmony export removeSummaryDuplicates */
 
 /**
- * @license Angular v4.3.2
+ * @license Angular v4.3.3
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -6878,7 +6878,7 @@ var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["E" /* Version */]
 /**
  * \@stable
  */
-var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["E" /* Version */]('4.3.2');
+var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["E" /* Version */]('4.3.3');
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -14155,11 +14155,9 @@ var _TreeBuilder = (function () {
      * @return {?}
      */
     _TreeBuilder.prototype._closeVoidElement = function () {
-        if (this._elementStack.length > 0) {
-            var /** @type {?} */ el = this._elementStack[this._elementStack.length - 1];
-            if (this.getTagDefinition(el.name).isVoid) {
-                this._elementStack.pop();
-            }
+        var /** @type {?} */ el = this._getParentElement();
+        if (el && this.getTagDefinition(el.name).isVoid) {
+            this._elementStack.pop();
         }
     };
     /**
@@ -14203,11 +14201,9 @@ var _TreeBuilder = (function () {
      * @return {?}
      */
     _TreeBuilder.prototype._pushElement = function (el) {
-        if (this._elementStack.length > 0) {
-            var /** @type {?} */ parentEl = this._elementStack[this._elementStack.length - 1];
-            if (this.getTagDefinition(parentEl.name).isClosedByChild(el.name)) {
-                this._elementStack.pop();
-            }
+        var /** @type {?} */ parentEl = this._getParentElement();
+        if (parentEl && this.getTagDefinition(parentEl.name).isClosedByChild(el.name)) {
+            this._elementStack.pop();
         }
         var /** @type {?} */ tagDef = this.getTagDefinition(el.name);
         var _a = this._getParentElementSkippingContainers(), parent = _a.parent, container = _a.container;
@@ -14289,7 +14285,7 @@ var _TreeBuilder = (function () {
             }
             container = this._elementStack[i];
         }
-        return { parent: this._elementStack[this._elementStack.length - 1], container: container };
+        return { parent: null, container: container };
     };
     /**
      * @param {?} node
@@ -34709,7 +34705,7 @@ function _mergeArrays(parts) {
 /* unused harmony export ɵu */
 
 /**
- * @license Angular v4.3.2
+ * @license Angular v4.3.3
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -35505,7 +35501,7 @@ var Version = (function () {
 /**
  * \@stable
  */
-var VERSION = new Version('4.3.2');
+var VERSION = new Version('4.3.3');
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -49520,7 +49516,7 @@ function transition$$1(stateChangeExpr, steps) {
 /* unused harmony export ɵResourceLoaderImpl */
 
 /**
- * @license Angular v4.3.2
+ * @license Angular v4.3.3
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -49653,7 +49649,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * @stable
  */
-var VERSION = new __WEBPACK_IMPORTED_MODULE_2__angular_core__["E" /* Version */]('4.3.2');
+var VERSION = new __WEBPACK_IMPORTED_MODULE_2__angular_core__["E" /* Version */]('4.3.3');
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -49741,7 +49737,7 @@ var platformBrowserDynamic = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__
 /* unused harmony export ɵe */
 
 /**
- * @license Angular v4.3.2
+ * @license Angular v4.3.3
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -54148,7 +54144,7 @@ var By = (function () {
 /**
  * \@stable
  */
-var VERSION = new __WEBPACK_IMPORTED_MODULE_2__angular_core__["E" /* Version */]('4.3.2');
+var VERSION = new __WEBPACK_IMPORTED_MODULE_2__angular_core__["E" /* Version */]('4.3.3');
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
